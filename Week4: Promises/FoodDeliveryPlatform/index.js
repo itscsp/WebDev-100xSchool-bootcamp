@@ -15,8 +15,9 @@ function demo() {
      */
 
     const cust = new Customer(2, "Chethab", "888888888", "North Area");
-    rest.login()
-    console.log('Is User logedin',cust.isLoggedIn())
+
+
+
     cust.addToCart({name: "Burder", price: 120, qty: 2});
     const order = cust.placeOrder(rest)
 
@@ -24,10 +25,15 @@ function demo() {
     rest.startPreparing(order)
     rest.makeOrderReady(order);
 
+    /**
+     * Delivery Partner
+     */
     const rider = new DeliveryPartner(3, "Aman", "777777777", "West ares");
 
     rider.acceptDelivery(order)
     rider.markDelivered();
+
+    
 
     const user = [rest, cust, rider];
     const dashboards = user.map(u => u.viewDashboard());
@@ -35,4 +41,5 @@ function demo() {
 }
 
     const out = demo()
+
     console.log(out);
