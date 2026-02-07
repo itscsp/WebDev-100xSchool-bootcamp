@@ -1,4 +1,4 @@
-import { User } from "./User";
+import { User } from "./User.js";
 
 export class RestaurantOwner extends User {
     constructor(id, name, phone, location) {
@@ -35,7 +35,7 @@ export class RestaurantOwner extends User {
     }
 
     makeOrderReady(order){
-        order.makeReady(this);
+        order.markReady(this);
     }
 
     viewDashboard() {

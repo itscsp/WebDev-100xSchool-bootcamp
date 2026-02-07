@@ -1,6 +1,6 @@
 
-import { Order } from './Order';
-import User from './User';
+import { Order } from './Order.js';
+import {User} from './User.js';
 
 export class Customer extends User{
     constructor(id, name, phone, location){
@@ -40,6 +40,6 @@ export class Customer extends User{
     }
 
     viewDashboard() {
-        return `Customer ${this.name}: ${this.order.length} orders`
+        return `Customer ${this.name}: ${this.orders.length} orders`
     }
 }

@@ -1,6 +1,6 @@
-const { Customer } = require("./Customer");
-const { DeliveryPartner } = require("./DeliveryPartner");
-const { RestaurantOwner } = require("./RestaurantOwner");
+import { Customer } from "./Customer.js";
+import { DeliveryPartner } from "./DeliveryPartner.js";
+import { RestaurantOwner } from "./RestaurantOwner.js";
 
 function demo() {
     /**
@@ -15,6 +15,8 @@ function demo() {
      */
 
     const cust = new Customer(2, "Chethab", "888888888", "North Area");
+    rest.login()
+    console.log('Is User logedin',cust.isLoggedIn())
     cust.addToCart({name: "Burder", price: 120, qty: 2});
     const order = cust.placeOrder(rest)
 
@@ -23,6 +25,7 @@ function demo() {
     rest.makeOrderReady(order);
 
     const rider = new DeliveryPartner(3, "Aman", "777777777", "West ares");
+
     rider.acceptDelivery(order)
     rider.markDelivered();
 
@@ -31,7 +34,5 @@ function demo() {
     return {status: order.orderStatus, dashboards};
 }
 
-if(require.main === module){
     const out = demo()
     console.log(out);
-}

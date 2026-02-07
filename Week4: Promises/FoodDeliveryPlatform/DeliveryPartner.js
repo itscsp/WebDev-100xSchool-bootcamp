@@ -1,5 +1,5 @@
 
-import User from './User';
+import {User} from './User.js';
 
 export class DeliveryPartner extends User{
     constructor(id, name, phone, location){
@@ -17,7 +17,7 @@ export class DeliveryPartner extends User{
 
     markDelivered() {
         if(!this.currentDelivery) throw new Error("No delivery");
-        this.currentDelivery.markDelivered(this)
+        this.currentDelivery.markDelivered(this);
         this.completed.push(this.currentDelivery);
         this.earning += Math.round(this.currentDelivery.totalAmount * 0.1);
         this.currentDelivery = null;
