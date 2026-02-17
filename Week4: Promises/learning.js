@@ -29,22 +29,19 @@
 // setTimeout(call1, 1000)
 
 
-// function callbackPromisefied(ms) {
-//     return new Promise((res, rej) => {
-//         setTimeout(res, ms)
-//     })
-// }
+function callbackPromisefied(ms) {
+    return new Promise((res, rej) => {
+        setTimeout(res, ms)
+    })
+}
 
-// callbackPromisefied(1000).then(() => {
-//     console.log("Hello")
-//     return callbackPromisefied(3000)
-// }).then(() => {
-//     console.log("Hi there");
-//     return callbackPromisefied(2000)  
-// }).then(() => {
-//     console.log("How are you");
-// })
+callbackPromisefied(1000).then(() => {
+    console.log("Hello")
+    return callbackPromisefied(3000)
+}).then(() => {
+    console.log("Hi there");
+    return callbackPromisefied(2000)  
+}).then(() => {
+    console.log("How are you");
+})
 
-let items = [1, 2, 3, 4, 5]
-let items2 = items.slice()
-let items3 
