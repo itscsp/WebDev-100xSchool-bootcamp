@@ -2,6 +2,7 @@
  * Creating custom promises for read file
  */
 const fs = require('fs');
+const { resolve } = require('path');
 
 function readFilePromisified(filePath, encoded) {
     return new Promise(function(resolve, reject) {
@@ -15,10 +16,27 @@ function readFilePromisified(filePath, encoded) {
     })
 }
 
-readFilePromisified('a.txt', 'utf-8')
-    .then(function(res){
-        console.log(res)
+// readFilePromisified('a.txt', 'utf-8')
+//     .then(function(res){
+//         console.log(res)
+//     })
+//     .catch(function(err){
+//         console.log(err)
+//     })
+
+/**
+ * Create promises for setTimeout
+ */
+
+function timeoutPromisefied(delay){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve()
+        }, delay)
     })
-    .catch(function(err){
-        console.log(err)
+}
+
+timeoutPromisefied(1000)
+    .then(function(){
+        console.log("Hello");
     })
